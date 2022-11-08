@@ -1,0 +1,75 @@
+<div class="columns is-desktop is-mobile is tablet">
+  <div class="column"></div>
+  <div class="column is-full-desktop is-four-fifths">
+    <ng-container>
+      <div class="card block">
+        <div class="card-content">
+          <div class="media">
+            <div class="media-left has-background-primary">
+              <figure class="image is-48x48">
+                <img
+                  src="{{ BASE_URL }}/{{ weather.weather[0].icon }}@2x.png"
+                  [alt]="weather.name"
+                />
+              </figure>
+            </div>
+            <div class="media-content">
+              <p class="title is-4">
+                {{ weather.name }} - {{ weather.sys.country }}
+              </p>
+              <p class="subtitle is-6">
+                {{ weather.weather[0].main }} /
+                {{ weather.main.temp | number: '1.0-0' }} &#8451;
+              </p>
+            </div>
+          </div>
+          <div class="content"></div>
+        </div>
+        <footer class="card-footer">
+          <p class="card-footer-item">
+            <span>
+              <strong>
+                <i
+                  class="fa-solid fa-temperature-arrow-down has-text-primary"
+                ></i>
+                Pressure:
+              </strong>
+              {{ weather.main.pressure }}
+              <sup>hPa</sup>
+            </span>
+          </p>
+          <p class="card-footer-item">
+            <span>
+              <strong>
+                <i class="fa-solid fa-droplet has-text-primary"></i>
+                Humidity:
+              </strong>
+              {{ weather.main.humidity }}
+              <sup>%</sup>
+            </span>
+          </p>
+          <p class="card-footer-item">
+            <span>
+              <strong>
+                <i class="fa-solid fa-wind has-text-primary"></i>
+                Wind:
+              </strong>
+              {{ weather.wind.speed }}
+              <sup>m/s</sup>
+            </span>
+          </p>
+        </footer>
+      </div>
+    </ng-container>
+    <ng-template>
+      <div class="card has-background-danger">
+        <header class="card-header">
+          <p class="card-header-title has-text-warning-light">
+            No Found Result
+          </p>
+        </header>
+      </div>
+    </ng-template>
+  </div>
+  <div class="column"></div>
+</div>

@@ -1,0 +1,5 @@
+<app-navbar></app-navbar>
+<app-search (submitted)="onSearch($event)"></app-search>
+<app-spinner></app-spinner>
+<app-weather *ngIf="weather$ | async as weather" [weather]="weather"></app-weather>
+<app-footer></app-footer>
